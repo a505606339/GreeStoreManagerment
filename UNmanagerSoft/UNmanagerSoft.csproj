@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DCBE569-D178-408F-8873-6B9CA1F90447}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UNmanagerSoft</RootNamespace>
+    <AssemblyName>UNmanagerSoft</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\Microsoft Visual Studio 9.0\Visual Studio Tools for Office\PIA\Office12\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NPOI">
+      <HintPath>C:\Users\xiyuaner\Desktop\新建文件夹\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="systemFunction">
+      <HintPath>.\systemFunction.dll</HintPath>
+    </Reference>
+    <Reference Include="TonyPagerForWinForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="WindowsFormsControlLibrary1">
+      <HintPath>C:\Users\xiyuaner\Desktop\WindowsFormsControlLibrary1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business LL\ClientEntity.cs" />
+    <Compile Include="Business LL\InEntity.cs" />
+    <Compile Include="Business LL\OutEntity.cs" />
+    <Compile Include="Business LL\ReturnedEntity.cs" />
+    <Compile Include="Business LL\StorageEntity.cs" />
+    <Compile Include="DAL\ClientStorageWrapper.cs" />
+    <Compile Include="DAL\DeliveryWapper.cs" />
+    <Compile Include="DAL\InStorageWrapper.cs" />
+    <Compile Include="DAL\OperaterWapper.cs" />
+    <Compile Include="DAL\OutStorageWrapper.cs" />
+    <Compile Include="DAL\PairedWrapper.cs" />
+    <Compile Include="DAL\ReturnedWrapper.cs" />
+    <Compile Include="DAL\SetterWapper.cs" />
+    <Compile Include="DAL\StorageWrapper.cs" />
+    <Compile Include="Utility\ComboxDateInit.cs" />
+    <Compile Include="Utility\ExcelUtiltity.cs" />
+    <Compile Include="Utility\GenerateExcel.cs" />
+    <Compile Include="Utility\officeTool.cs" />
+    <Compile Include="Utility\picBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\picBoxEx.Designer.cs">
+      <DependentUpon>picBoxEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\imageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\imageButton.Designer.cs">
+      <DependentUpon>imageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\MyButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utility\ReceiveDataDispose.cs" />
+    <Compile Include="View\ClientNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ClientNameForm.Designer.cs">
+      <DependentUpon>ClientNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OptNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OptNameForm.Designer.cs">
+      <DependentUpon>OptNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\InDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InDataForm.designer.cs">
+      <DependentUpon>InDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InSelectForm.designer.cs">
+      <DependentUpon>InSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OutDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OutDataForm.Designer.cs">
+      <DependentUpon>OutDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OutSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OutSelectForm.Designer.cs">
+      <DependentUpon>OutSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReturnedDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReturnedDataForm.Designer.cs">
+      <DependentUpon>ReturnedDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReturnedSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReturnedSelectForm.Designer.cs">
+      <DependentUpon>ReturnedSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StorageSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StorageSelectForm.Designer.cs">
+      <DependentUpon>StorageSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WarehouseForm.Designer.cs">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Utility\imageButton.resx">
+      <DependentUpon>imageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\ClientNameForm.resx">
+      <DependentUpon>ClientNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InDataForm.resx">
+      <DependentUpon>InDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InSelectForm.resx">
+      <DependentUpon>InSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OptNameForm.resx">
+      <DependentUpon>OptNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OutDataForm.resx">
+      <DependentUpon>OutDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OutSelectForm.resx">
+      <DependentUpon>OutSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReturnedDataForm.resx">
+      <DependentUpon>ReturnedDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReturnedSelectForm.resx">
+      <DependentUpon>ReturnedSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StorageSelectForm.resx">
+      <DependentUpon>StorageSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WarehouseForm.resx">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_None.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inInsert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inUpdate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outInsert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outUpdate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reRetuened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintainToTheDay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintainToTheMonth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintainToTheWeek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintainToTheYear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\countExc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\countPreview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\countPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\countSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroup2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locationBannel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintainAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\operaterManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setterManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deliverManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locationBannel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peizhibiao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topbanner.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+Provider=Microsoft.ACE.OLEDB.12.0;Data Source = F:/软件版本/格力电器/批量录入的PC端/格力客户端界面改版/UNmanagerSoft/bin/Release\数据库\greeDatabase.accdb;Jet OLEDB:Database Password=123456
