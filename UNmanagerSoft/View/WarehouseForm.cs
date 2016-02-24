@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UNmanagerSoft.DAL;
+using UNmanagerSoft.Business_LL;
 
 namespace UNmanagerSoft.View
 {
@@ -40,6 +41,31 @@ namespace UNmanagerSoft.View
             dgv_inStorage.DataSource = dt;
         }
 
-        
+        private void 修改数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StorageEntity storage = new StorageEntity();
+            //初始化...
+            StockUpdateForm stockDataList = new StockUpdateForm();
+            stockDataList.row += new StockUpdateForm.updateEventHandler(updateEvent);
+            stockDataList.Storage = storage;
+            stockDataList.ShowDialog();
+        }
+
+        private void 删除数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateEvent(int influenceRow)
+        {
+            if (influenceRow > 0)
+            {
+                MessageBox.Show(influenceRow.ToString());
+            }
+            else
+            {
+                MessageBox.Show("err");
+            }
+        }
     }
 }

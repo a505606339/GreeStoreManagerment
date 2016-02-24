@@ -81,5 +81,45 @@ namespace UNmanagerSoft.DAL
             myConn.Close();
             return dt;
         }
+
+        public int updateStockByID(StorageEntity stock)
+        {
+            string strConOffice = off.readConnOffice();
+            OleDbConnection myConn = new OleDbConnection(strConOffice);
+            myConn.Open();
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            OleDbCommand command = new OleDbCommand();
+            string insertHistoryStock = "insert into 库存表(空调型号" +
+                ",数量,单据单号,单据名称,入库员,入库时间,入库备注,仓库名称) values ('" + 
+                stock.Type + "','" +
+                stock.Number + "','" +
+                stock.ReceiptsNumber + "','" + 
+                stock.ReceiptsName + "','" + 
+                stock.InOpter + "','" + 
+                stock.InDateTime + "','" +
+                stock.InRemark + "','" +
+                stock.StockName + "'";
+            command.CommandText = insertHistoryStock;
+            command.Connection = myConn;
+            command.ExecuteNonQuery();
+
+            string updateText = "update 库存表 set 空调型号 = '" +
+                stock.Type + "',数量 = '" +
+                stock.Number + "',单据单号 = '" + 
+                stock.ReceiptsNumber + "',单据名称 = '" +
+                stock.ReceiptsName + "',入库员 = '" +
+                stock.InOpter + "',入库时间 = '" +
+                stock.InDateTime + ",入库备注 = '" +
+                stock.InRemark + "',仓库名称 = '" +
+                stock.StockName + "' where 空调型号 = '" + stock.Type +
+                "' and 仓库名称 = '" + stock.StockName + "'";
+            command = new OleDbCommand();
+            command.CommandText = updateText;
+            command.Connection = myConn;
+            myConn.Close();
+            int influenceRow = command.ExecuteNonQuery();
+            command.Dispose();
+            return influenceRow;
+        }
     }
 }
