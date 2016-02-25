@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgv_inStorage = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.winFormPager1 = new Tony.Controls.Winform.WinFormPager();
             this.contextMenuStripdgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.修改数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.winFormPager1 = new Tony.Controls.Winform.WinFormPager();
             this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.airType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +48,11 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.删除数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inStorage)).BeginInit();
-            this.panel2.SuspendLayout();
             this.contextMenuStripdgv.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,6 +81,14 @@
             this.dgv_inStorage.AllowUserToResizeRows = false;
             this.dgv_inStorage.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgv_inStorage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_inStorage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_inStorage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inStorage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UID,
@@ -101,6 +110,29 @@
             this.dgv_inStorage.RowTemplate.Height = 23;
             this.dgv_inStorage.Size = new System.Drawing.Size(761, 411);
             this.dgv_inStorage.TabIndex = 2;
+            // 
+            // contextMenuStripdgv
+            // 
+            this.contextMenuStripdgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.修改数据ToolStripMenuItem,
+            this.删除数据ToolStripMenuItem});
+            this.contextMenuStripdgv.Name = "contextMenuStripdgv";
+            this.contextMenuStripdgv.Size = new System.Drawing.Size(125, 48);
+            // 
+            // 修改数据ToolStripMenuItem
+            // 
+            this.修改数据ToolStripMenuItem.Name = "修改数据ToolStripMenuItem";
+            this.修改数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改数据ToolStripMenuItem.Text = "修改数据";
+            this.修改数据ToolStripMenuItem.Click += new System.EventHandler(this.修改数据ToolStripMenuItem_Click);
+            // 
+            // 删除数据ToolStripMenuItem
+            // 
+            this.删除数据ToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.删除数据ToolStripMenuItem.Name = "删除数据ToolStripMenuItem";
+            this.删除数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除数据ToolStripMenuItem.Text = "删除数据";
+            this.删除数据ToolStripMenuItem.Click += new System.EventHandler(this.删除数据ToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -127,21 +159,6 @@
             this.winFormPager1.TextImageRalitions = Tony.Controls.Winform.WinFormPager.TextImageRalitionEnum.图片显示在文字前方;
             this.winFormPager1.PageIndexChanged += new Tony.Controls.Winform.WinFormPager.EventHandler(this.winFormPager1_PageIndexChanged);
             // 
-            // contextMenuStripdgv
-            // 
-            this.contextMenuStripdgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.修改数据ToolStripMenuItem,
-            this.删除数据ToolStripMenuItem});
-            this.contextMenuStripdgv.Name = "contextMenuStripdgv";
-            this.contextMenuStripdgv.Size = new System.Drawing.Size(153, 70);
-            // 
-            // 修改数据ToolStripMenuItem
-            // 
-            this.修改数据ToolStripMenuItem.Name = "修改数据ToolStripMenuItem";
-            this.修改数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.修改数据ToolStripMenuItem.Text = "修改数据";
-            this.修改数据ToolStripMenuItem.Click += new System.EventHandler(this.修改数据ToolStripMenuItem_Click);
-            // 
             // UID
             // 
             this.UID.DataPropertyName = "UID";
@@ -151,9 +168,11 @@
             // 
             // airType
             // 
+            this.airType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.airType.DataPropertyName = "空调型号";
             this.airType.HeaderText = "空调型号";
             this.airType.Name = "airType";
+            this.airType.Width = 210;
             // 
             // number
             // 
@@ -172,12 +191,14 @@
             this.receiptsNumber.DataPropertyName = "单据单号";
             this.receiptsNumber.HeaderText = "单据单号";
             this.receiptsNumber.Name = "receiptsNumber";
+            this.receiptsNumber.Width = 150;
             // 
             // receiptsName
             // 
             this.receiptsName.DataPropertyName = "单据名称";
             this.receiptsName.HeaderText = "单据名称";
             this.receiptsName.Name = "receiptsName";
+            this.receiptsName.Width = 150;
             // 
             // opt
             // 
@@ -196,20 +217,13 @@
             this.remark.DataPropertyName = "入库备注";
             this.remark.HeaderText = "备注";
             this.remark.Name = "remark";
+            this.remark.Width = 200;
             // 
             // stockName
             // 
             this.stockName.DataPropertyName = "仓库名称";
             this.stockName.HeaderText = "仓库名称";
             this.stockName.Name = "stockName";
-            // 
-            // 删除数据ToolStripMenuItem
-            // 
-            this.删除数据ToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.删除数据ToolStripMenuItem.Name = "删除数据ToolStripMenuItem";
-            this.删除数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.删除数据ToolStripMenuItem.Text = "删除数据";
-            this.删除数据ToolStripMenuItem.Click += new System.EventHandler(this.删除数据ToolStripMenuItem_Click);
             // 
             // WarehouseForm
             // 
@@ -224,8 +238,8 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inStorage)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.contextMenuStripdgv.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,6 +253,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripdgv;
         private System.Windows.Forms.ToolStripMenuItem 修改数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除数据ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn UID;
         private System.Windows.Forms.DataGridViewTextBoxColumn airType;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
@@ -249,7 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockName;
-        private System.Windows.Forms.ToolStripMenuItem 删除数据ToolStripMenuItem;
 
 
     }

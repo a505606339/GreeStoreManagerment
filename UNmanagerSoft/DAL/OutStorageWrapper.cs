@@ -72,42 +72,7 @@ namespace UNmanagerSoft.DAL
                             object myReslut = mySqlQueryD.ExecuteNonQuery();
                             if (myReslut != System.DBNull.Value)
                             {
-                                sda.Update(ds);
-                                ds.AcceptChanges();
-                                mySqlQuery = "SELECT * from 库存表 where 条码 = '"
-                                             + inbarcode + "' or 条码 = '" + outbarcode + "'";
-                                ds.Tables.Clear();
-                                sda.SelectCommand = new OleDbCommand(mySqlQuery, myConn);
-                                sda.Fill(ds);
-                                //或许会因为入库没入某内外机,导致存在外机或是内机没有库存数据的情况 
-                                if (ds != null)
-                                {
-                                    if (ds.Tables[0].Rows.Count >= 1)
-                                    {
-                                        mySqlQueryD = new OleDbCommand();
-                                        mySqlQueryD.CommandText = "UPDATE 库存表 set 空调型号='" + type
-                                            + "',出库单号='" + outOrderNum
-                                            + "', 客户名称='" + clientName
-                                            + "',出库金额='" + money
-                                            + "', 出库员='" + operators
-                                            + "',送货员='" + deliver
-                                            + "', 安装员='" + install
-                                            + "' where 条码 ='" + inbarcode + "' or 条码 = '"
-                                            + outbarcode + "'";
-                                        mySqlQueryD.Connection = myConn;
-                                        try
-                                        {
-                                            myReslut = mySqlQueryD.ExecuteNonQuery();
-                                            if (myReslut != System.DBNull.Value)
-                                            {
-                                                returnflag = 1;
-                                            }
-                                        }
-                                        catch
-                                        {
-                                        }
-                                    }
-                                }
+                                returnflag = 1;
                             }
                             else
                                 returnflag = -1;
@@ -137,14 +102,15 @@ namespace UNmanagerSoft.DAL
             {
                 return "数据库启动失败";
             }
+            OleDbTransaction transaction = myConn.BeginTransaction();
+            OleDbDataAdapter sda = new OleDbDataAdapter();
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+            string strInputPath = mySys.exePath() + @"\数据\出库\";
+            DirectoryInfo dir = new DirectoryInfo(strInputPath);
+            FileInfo[] finfo = dir.GetFiles();
             try
             {
-                OleDbDataAdapter sda = new OleDbDataAdapter();
-                DataTable dt1 = new DataTable();
-                DataTable dt2 = new DataTable();
-                string strInputPath = mySys.exePath() + @"\数据\出库\";
-                DirectoryInfo dir = new DirectoryInfo(strInputPath);
-                FileInfo[] finfo = dir.GetFiles();
                 string fnames = string.Empty;
                 int i = 0;
                 bool blOk = false;
@@ -184,6 +150,7 @@ namespace UNmanagerSoft.DAL
                                                          strArrays[1].ToString() + "'";
                                         }
                                         dt1 = new DataTable();
+                                        //换成adapter
                                         sda.SelectCommand = new OleDbCommand(
                                             mySqlQuery, myConn);
                                         sda.Fill(dt1);
@@ -191,10 +158,12 @@ namespace UNmanagerSoft.DAL
                                         {
                                             if (dt1.Rows.Count > 0)
                                             {
+
                                             }
                                             else
                                             {
                                                 OleDbCommand mySqlAddData = myConn.CreateCommand();
+                                                mySqlAddData.Transaction = transaction;
                                                 mySqlAddData.CommandText = "INSERT INTO 出库表 VALUES ('"
                                                                            + strArrays[0].ToString() + "','"
                                                                            + strArrays[1].ToString() + "','"
@@ -207,37 +176,19 @@ namespace UNmanagerSoft.DAL
                                                                            + strArrays[8].ToString() + "','"
                                                                            + strArrays[9].ToString() + "','"
                                                                            + strArrays[10].ToString() + "','"
-                                                                           + strArrays[11].ToString() + "')";
-
+                                                                           + strArrays[11].ToString() + "','"
+                                                                           + strArrays[12].ToString() + "')";
                                                 object myReslut = mySqlAddData.ExecuteNonQuery();
                                                 if (myReslut != System.DBNull.Value)
                                                 {
                                                     //wh 
                                                     dt1 = new DataTable();
-                                                    if (strArrays[0].ToString() != "")
-                                                    {
-                                                        mySqlQuery = "SELECT * from 库存表 where 条码='"
-                                                                     + strArrays[0].ToString() + "'";
-                                                        sda.SelectCommand = new OleDbCommand(
-                                                            mySqlQuery, myConn);
-                                                        sda.Fill(dt1);
-                                                    }
-                                                    if (strArrays[1].ToString() != "")
-                                                    {
-                                                        mySqlQuery = "SELECT * from 库存表 where 条码='"
-                                                                     + strArrays[1].ToString() + "'";
-                                                        sda.SelectCommand = new OleDbCommand(
-                                                            mySqlQuery, myConn);
-                                                        sda.Fill(dt2);
-                                                    }
-                                                    if (dt1 != null)
-                                                    {
-                                                        updateStock(myConn, strArrays, dt1, ref blOk, strArrays[0], "内");
-                                                    }
-                                                    if (dt2 != null)
-                                                    {
-                                                        updateStock(myConn, strArrays, dt2, ref blOk, strArrays[1], "外");
-                                                    }
+                                                    mySqlQuery = "SELECT * from 库存表 where 空调型号='"
+                                                                    + strArrays[0].ToString() + "'";
+                                                    sda.SelectCommand = new OleDbCommand(
+                                                        mySqlQuery, myConn);
+                                                    sda.Fill(dt1);
+                                                    updateStock(myConn, strArrays, dt1, ref blOk,transaction);
                                                 }
                                                 else
                                                 {
@@ -295,6 +246,7 @@ namespace UNmanagerSoft.DAL
             catch (Exception ex)
             {
                 myConn.Close();
+                transaction.Rollback();
                 return "error," + ex.Message;
             }
         }
@@ -311,40 +263,30 @@ namespace UNmanagerSoft.DAL
             string[] outArray,
             DataTable dt,
             ref bool blOk,
-            string barcode,
-            string InOrOut)
+            OleDbTransaction transaction)
         {
             OleDbCommand mySqlAddData = myConn.CreateCommand();
             var myReslut = 0;
             //若存在库存则进行更新,不存在则新建该数据库存 
             if (dt.Rows.Count > 0)
             {
-                string strQty = dt.Rows[0].ItemArray[3].ToString();
-                if (strQty == "1")
-                    strQty = "0";
-                else
-                    strQty = "-1";
+                int strQty = 0;
+                try
+                {
+                    strQty = Convert.ToInt32(dt.Rows[0].ItemArray[3]);
+                }
+                catch(Exception ex)
+                {
+                    throw ex;
+                }
                 mySqlAddData = myConn.CreateCommand();
-                mySqlAddData.CommandText = "UPDATE 库存表 set  数量='"
-                                            + strQty + "',出库金额='"
-                                            + outArray[6].ToString() +
-                                            "',空调型号='"
-                                            + outArray[2].ToString() +
-                                            "',客户名称='"
-                                            + outArray[3].ToString() +
-                                            "',出库员='"
-                                            + outArray[7].ToString() +
-                                            "',送货员='"
-                                            + outArray[8].ToString() +
-                                            "',安装员='"
-                                            + outArray[9].ToString() +
-                                            "',出库时间='"
-                                            + outArray[4].ToString() +
-                                            "',出库备注='"
-                                            + outArray[10].ToString() +
-                                            "' where 条码='"
-                                            + barcode +
-                                            "'";
+                mySqlAddData.CommandText = "UPDATE 库存表 set 数量 = '" +
+                                            strQty +
+                                            "' where 空调型号='" +
+                                            outArray[2].ToString() +
+                                            "' and 仓库名称 = '" +
+                                            outArray[12].ToString();
+                mySqlAddData.Transaction = transaction;
                 myReslut = mySqlAddData.ExecuteNonQuery();
                 if (myReslut > -1)
                 {
@@ -355,32 +297,12 @@ namespace UNmanagerSoft.DAL
             {
                 //MessageBox.Show("test01");
                 mySqlAddData = myConn.CreateCommand();
-                mySqlAddData.CommandText = "INSERT INTO 库存表 VALUES ('"
-                                            + outArray[0].ToString() +
-                                            "','"
-                                            + InOrOut +
-                                            "','"
-                                            + outArray[2].ToString() +
-                                            "','"
-                                            + "-1" + "','','','','','','"
-                                            + outArray[3].ToString() +
-                                            "','"
-                                            + outArray[6].ToString() +
-                                            "','"
-                                            + outArray[7].ToString() +
-                                            "','"
-                                            + outArray[8].ToString() +
-                                            "','"
-                                            + outArray[9].ToString() +
-                                            "','"
-                                            + outArray[4].ToString() +
-                                            "','"
-                                            + outArray[5].ToString() +
-                                            "','','"
-                                            + outArray[10].ToString() +
-                                            "')";
+                mySqlAddData.CommandText = "INSERT INTO 库存表(空调型号,数量,仓库名称) VALUES ('"
+                                            + outArray[2] + "','" 
+                                            + "-1" + "','" 
+                                            + outArray[12] + "')";
+                mySqlAddData.Transaction = transaction;
                 myReslut = mySqlAddData.ExecuteNonQuery();
-
                 if (myReslut > -1)
                 {
                     blOk = true;

@@ -107,12 +107,12 @@
             this.toolStripButtonOperation = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.imgbtn_Link = new UNmanagerSoft.imageButton();
             this.imgbtn_Count = new UNmanagerSoft.imageButton();
             this.imgbtn_Returned = new UNmanagerSoft.imageButton();
             this.imgbtn_Out = new UNmanagerSoft.imageButton();
             this.imgbtn_In = new UNmanagerSoft.imageButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panelBannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_back)).BeginInit();
@@ -226,10 +226,10 @@
             this.tabcontrol_main.Controls.Add(this.tabPage4);
             this.tabcontrol_main.Controls.Add(this.tabPage5);
             this.tabcontrol_main.Controls.Add(this.tabPage6);
-            this.tabcontrol_main.Location = new System.Drawing.Point(-3, 3);
+            this.tabcontrol_main.Location = new System.Drawing.Point(-3, 24);
             this.tabcontrol_main.Name = "tabcontrol_main";
             this.tabcontrol_main.SelectedIndex = 0;
-            this.tabcontrol_main.Size = new System.Drawing.Size(763, 512);
+            this.tabcontrol_main.Size = new System.Drawing.Size(763, 491);
             this.tabcontrol_main.TabIndex = 1;
             // 
             // tabPage2
@@ -239,7 +239,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(755, 486);
+            this.tabPage2.Size = new System.Drawing.Size(755, 465);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "入库管理";
             // 
@@ -252,7 +252,7 @@
             this.inContorlPannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inContorlPannel.Location = new System.Drawing.Point(3, 3);
             this.inContorlPannel.Name = "inContorlPannel";
-            this.inContorlPannel.Size = new System.Drawing.Size(749, 480);
+            this.inContorlPannel.Size = new System.Drawing.Size(749, 459);
             this.inContorlPannel.TabIndex = 14;
             // 
             // picbox_inSelect
@@ -298,7 +298,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(755, 465);
+            this.tabPage3.Size = new System.Drawing.Size(755, 486);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "出库管理";
             // 
@@ -356,7 +356,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(755, 465);
+            this.tabPage4.Size = new System.Drawing.Size(755, 486);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "退货管理";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -416,7 +416,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(755, 465);
+            this.tabPage5.Size = new System.Drawing.Size(755, 486);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "统计报表";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1023,18 +1023,6 @@
             this.panel2.Size = new System.Drawing.Size(124, 515);
             this.panel2.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(35, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "功能导航";
-            // 
             // imgbtn_Link
             // 
             this.imgbtn_Link.BackgroundImage = global::UNmanagerSoft.Properties.Resources.btn_None;
@@ -1119,6 +1107,18 @@
             this.imgbtn_In.Text = "入库管理";
             this.imgbtn_In.UseVisualStyleBackColor = true;
             this.imgbtn_In.Click += new System.EventHandler(this.imgbtn_In_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(35, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "功能导航";
             // 
             // MainForm
             // 

@@ -71,8 +71,8 @@ namespace UNmanagerSoft.DAL
             }
             else
             {
-                selectText = "select top 20 * from 库存表 where 条码 not in" +
-                    "(select top " + num.ToString() + " 条码 from 库存表)";
+                selectText = "select top 20 * from 库存表 where UID not in" +
+                    "(select top " + num.ToString() + " UID from 库存表)";
             }
             command.CommandText = selectText;
             command.Connection = myConn;
@@ -82,23 +82,25 @@ namespace UNmanagerSoft.DAL
             return dt;
         }
 
-        public int updateStockByID(StorageEntity stock)
+        public int updateStockByID(StorageEntity stock,string uid,string stockName)
         {
             string strConOffice = off.readConnOffice();
             OleDbConnection myConn = new OleDbConnection(strConOffice);
             myConn.Open();
             OleDbDataAdapter adapter = new OleDbDataAdapter();
             OleDbCommand command = new OleDbCommand();
-            string insertHistoryStock = "insert into 库存表(空调型号" +
-                ",数量,单据单号,单据名称,入库员,入库时间,入库备注,仓库名称) values ('" + 
+            string insertHistoryStock = "insert into 库存备份表(空调型号" +
+                ",数量,入库金额,单据单号,单据名称,入库员,入库时间,入库备注,仓库名称,操作) values ('" + 
                 stock.Type + "','" +
                 stock.Number + "','" +
+                stock.InMoney + "','" +
                 stock.ReceiptsNumber + "','" + 
                 stock.ReceiptsName + "','" + 
                 stock.InOpter + "','" + 
                 stock.InDateTime + "','" +
                 stock.InRemark + "','" +
-                stock.StockName + "'";
+                stock.StockName + "','" + 
+                "更改" + "')";
             command.CommandText = insertHistoryStock;
             command.Connection = myConn;
             command.ExecuteNonQuery();
@@ -109,15 +111,49 @@ namespace UNmanagerSoft.DAL
                 stock.ReceiptsNumber + "',单据名称 = '" +
                 stock.ReceiptsName + "',入库员 = '" +
                 stock.InOpter + "',入库时间 = '" +
-                stock.InDateTime + ",入库备注 = '" +
+                stock.InDateTime + "',入库备注 = '" +
                 stock.InRemark + "',仓库名称 = '" +
-                stock.StockName + "' where 空调型号 = '" + stock.Type +
-                "' and 仓库名称 = '" + stock.StockName + "'";
+                stock.StockName + "',入库金额 = '" +
+                stock.InMoney + "' where UID = " + uid +
+                " and 仓库名称 = '" + stockName + "'";
             command = new OleDbCommand();
             command.CommandText = updateText;
             command.Connection = myConn;
-            myConn.Close();
             int influenceRow = command.ExecuteNonQuery();
+            myConn.Close();
+            command.Dispose();
+            return influenceRow;
+        }
+
+        public int deleteStorageByID(StorageEntity stock)
+        {
+            string strConOffice = off.readConnOffice();
+            OleDbConnection myConn = new OleDbConnection(strConOffice);
+            myConn.Open();
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            OleDbCommand command = new OleDbCommand();
+            string insertHistoryStock = "insert into 库存备份表(空调型号" +
+                ",数量,入库金额,单据单号,单据名称,入库员,入库时间,入库备注,仓库名称,操作) values ('" +
+                stock.Type + "','" +
+                stock.Number + "','" +
+                stock.InMoney + "','" +
+                stock.ReceiptsNumber + "','" +
+                stock.ReceiptsName + "','" +
+                stock.InOpter + "','" +
+                stock.InDateTime + "','" +
+                stock.InRemark + "','" +
+                stock.StockName + "','" +
+                "删除" + "')";
+            command.CommandText = insertHistoryStock;
+            command.Connection = myConn;
+            command.ExecuteNonQuery();
+
+            string deleteStock = "delete from 库存表 where UID = " + stock.UID;
+            command = new OleDbCommand();
+            command.CommandText = deleteStock;
+            command.Connection = myConn;
+            int influenceRow = command.ExecuteNonQuery();
+            myConn.Close();
             command.Dispose();
             return influenceRow;
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UNmanagerSoft.Business_LL
 {
-    class StorageEntity
+    public class StorageEntity
     {
         private string _uid;
         private string _type;
