@@ -1,0 +1,17 @@
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\bin\Debug\padSoft_e.exe
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\bin\Debug\padSoft_e.pdb
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.inputForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.loginForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.mainForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.outputForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.Properties.Resources.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.returnedForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.uploadForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.csproj.GenerateResource.Cache
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.exe
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.pdb
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.pairedForm.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.Resource1.resources
+C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e\obj\Debug\padSoft_e.SelectTypeForm.resources

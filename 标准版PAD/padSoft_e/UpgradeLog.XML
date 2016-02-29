@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="padSoft_e">
+</Property><Property Name="解决方案文件" Value="C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e.sln">
+</Property><Property Name="用户选项文件" Value="C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\padSoft_e.suo">
+</Property><Property Name="Date" Value="2015年4月3日">
+</Property><Property Name="Time" Value="9:48">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="padSoft_e.sln" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e.sln">
+</Event><Event ErrorLevel="0" Project="" Source="padSoft_e.suo" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e.suo">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj" Description="项目文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\padSoft_e.csproj">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj.user" Description="项目用户文件成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\padSoft_e.csproj.user">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\inputForm.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\inputForm.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\inputForm.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\inputForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\loginForm.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\loginForm.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\loginForm.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\loginForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\mainForm.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\mainForm.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\mainForm.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\mainForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\outputForm.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\outputForm.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\outputForm.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\outputForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\Program.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\Program.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\Properties\Resources.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\scanFunction.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\scanFunction.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\sysFunction.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\sysFunction.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\uploadForm.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\uploadForm.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\uploadForm.Designer.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\uploadForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\wifiFunction.cs" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\wifiFunction.cs">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\logo.ico" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\logo.ico">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\inputForm.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\inputForm.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\loginForm.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\loginForm.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\mainForm.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\mainForm.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\outputForm.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\outputForm.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\Properties\Resources.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\uploadForm.resx" Description="文件已成功备份为 C:\Users\xiyuaner\Desktop\PC端软件_工机具管理\padSoft_e\Backup\padSoft_e\uploadForm.resx">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="padSoft_e.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="padSoft_e.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\inputForm.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\inputForm.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\loginForm.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\loginForm.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\mainForm.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\mainForm.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\outputForm.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\outputForm.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\Properties\Resources.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\Properties\Resources.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\uploadForm.resx" Description="文件已成功转换">
+</Event><Event ErrorLevel="3" Project="padSoft_e" Source="padSoft_e\uploadForm.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="padSoft_e" Source="padSoft_e\padSoft_e.csproj" Description="对以前版本的 SQL Server Compact 提供程序的引用已更新。">
+</Event></UpgradeLog>

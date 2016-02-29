@@ -1,0 +1,14 @@
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\bin\Release\padSoft_e.exe
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\bin\Release\padSoft_e.pdb
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\ResolveAssemblyReference.cache
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.loginForm.resources
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.mainForm.resources
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.Properties.Resources.resources
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.csproj.GenerateResource.Cache
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.exe
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.pdb
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\bin\Release\System.Data.SqlServerCe.dll
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\bin\Release\System.Data.SqlServerCe.xml
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.inputForm.resources
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.outputForm.resources
+F:\soft_project\distributorManagement\economical\gree\padSoft_e\padSoft_e\obj\Release\padSoft_e.uploadForm.resources

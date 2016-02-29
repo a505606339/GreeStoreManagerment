@@ -1,0 +1,241 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C902C5A-559F-4B22-B6AB-17252C2BA52F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>padSoft_e</RootNamespace>
+    <AssemblyName>padSoft_e</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>padSoft_e</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBHelper.cs" />
+    <Compile Include="InAndOutBarMate.cs" />
+    <Compile Include="InDateListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InDateListForm.Designer.cs">
+      <DependentUpon>InDateListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inputForm.Designer.cs">
+      <DependentUpon>inputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutDataListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutDataListForm.Designer.cs">
+      <DependentUpon>OutDataListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="outputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="outputForm.Designer.cs">
+      <DependentUpon>outputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pairedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pairedForm.Designer.cs">
+      <DependentUpon>pairedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PairForm.Designer.cs">
+      <DependentUpon>PairForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InDateListForm.resx">
+      <DependentUpon>InDateListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inputForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>inputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutDataListForm.resx">
+      <DependentUpon>OutDataListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="outputForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>outputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pairedForm.resx">
+      <DependentUpon>pairedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PairForm.resx">
+      <DependentUpon>PairForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="returnedForm.resx">
+      <DependentUpon>returnedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectTypeForm.resx">
+      <DependentUpon>SelectTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uploadForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>uploadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="returnedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="returnedForm.Designer.cs">
+      <DependentUpon>returnedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="scanFunction.cs" />
+    <Compile Include="SelectTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectTypeForm.Designer.cs">
+      <DependentUpon>SelectTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SingletonUser.cs" />
+    <Compile Include="sysFunction.cs" />
+    <Compile Include="uploadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uploadForm.Designer.cs">
+      <DependentUpon>uploadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wifiFunction.cs" />
+    <Compile Include="XmlFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <None Include="Resources\padLoginImage.jpg" />
+    <None Include="Resources\tuihuo2.png" />
+    <None Include="Resources\tuichu2.png" />
+    <None Include="Resources\shangchuan2.png" />
+    <None Include="Resources\ruku2.png" />
+    <None Include="Resources\piliang2.png" />
+    <None Include="Resources\peizhibiao2.png" />
+    <None Include="Resources\chuku2.png" />
+    <None Include="Resources\tuichuchengxu.png" />
+    <None Include="Resources\peizhibiao.png" />
+    <None Include="Resources\tuihuoguanli.png" />
+    <None Include="Resources\shangchuanshuju.png" />
+    <None Include="Resources\piliangjiancha.png" />
+    <None Include="Resources\chukuguanli.png" />
+    <None Include="Resources\rukuguanli.png" />
+    <None Include="Resources\login.jpg" />
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+</Project>
