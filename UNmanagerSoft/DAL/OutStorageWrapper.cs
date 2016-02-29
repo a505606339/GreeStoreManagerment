@@ -91,6 +91,7 @@ namespace UNmanagerSoft.DAL
 
         public string insertDBCommand()
         {
+            StorageWrapper storageWrapper = new StorageWrapper();
             string strConOffice = off.readConnOffice();
             systemFunction.systemFunction mySys = new systemFunction.systemFunction();
             OleDbConnection myConn = new OleDbConnection(strConOffice);
@@ -105,7 +106,6 @@ namespace UNmanagerSoft.DAL
             OleDbTransaction transaction = myConn.BeginTransaction();
             OleDbDataAdapter sda = new OleDbDataAdapter();
             DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
             string strInputPath = mySys.exePath() + @"\数据\出库\";
             DirectoryInfo dir = new DirectoryInfo(strInputPath);
             FileInfo[] finfo = dir.GetFiles();
@@ -131,10 +131,10 @@ namespace UNmanagerSoft.DAL
                             string strInputData = reader.ReadLine();
                             if (strInputData.Length >= 10)
                             {
-                                int intTab = strInputData.IndexOf("\t");
+                                int intTab = strInputData.IndexOf("|");
                                 if (intTab >= 0)
                                 {
-                                    string[] strArrays = strInputData.Split('\t');
+                                    string[] strArrays = strInputData.Split('|');
                                     if (strArrays.Length >= 12)
                                     {
                                         //查询非空条码是否已经存在出库表里 
@@ -149,11 +149,7 @@ namespace UNmanagerSoft.DAL
                                             mySqlQuery = "SELECT * from 出库表 where 外机条码='" +
                                                          strArrays[1].ToString() + "'";
                                         }
-                                        dt1 = new DataTable();
-                                        //换成adapter
-                                        sda.SelectCommand = new OleDbCommand(
-                                            mySqlQuery, myConn);
-                                        sda.Fill(dt1);
+                                        dt1 = selectDBCommand(mySqlQuery);
                                         if (dt1 != null)
                                         {
                                             if (dt1.Rows.Count > 0)
@@ -185,9 +181,7 @@ namespace UNmanagerSoft.DAL
                                                     dt1 = new DataTable();
                                                     mySqlQuery = "SELECT * from 库存表 where 空调型号='"
                                                                     + strArrays[0].ToString() + "'";
-                                                    sda.SelectCommand = new OleDbCommand(
-                                                        mySqlQuery, myConn);
-                                                    sda.Fill(dt1);
+                                                    dt1 = storageWrapper.selectDBCommand(mySqlQuery);
                                                     updateStock(myConn, strArrays, dt1, ref blOk,transaction);
                                                 }
                                                 else
@@ -231,6 +225,7 @@ namespace UNmanagerSoft.DAL
                         }
                     }
                 }
+                transaction.Commit();
                 myConn.Close();
                 string returnflag = "";
                 if (i >= 1)

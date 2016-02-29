@@ -96,6 +96,7 @@ namespace UNmanagerSoft.DAL
 
         public string insertDBCommand()
         {
+            StorageWrapper storageWrapper = new StorageWrapper();
             string strConOffice = off.readConnOffice();
             systemFunction.systemFunction mySys = new systemFunction.systemFunction();
             OleDbConnection myConn = new OleDbConnection(strConOffice);
@@ -107,13 +108,13 @@ namespace UNmanagerSoft.DAL
             {
                 return "false,启动数据库失败";
             }
+            OleDbTransaction transaction = myConn.BeginTransaction();
+            OleDbDataAdapter sda = new OleDbDataAdapter();
+            string strInputPath = mySys.exePath() + @"\数据\入库\";
+            DirectoryInfo dir = new DirectoryInfo(strInputPath);
+            FileInfo[] finfo = dir.GetFiles();
             try
             {
-                OleDbDataAdapter sda = new OleDbDataAdapter();
-                
-                string strInputPath = mySys.exePath() + @"\数据\入库\";
-                DirectoryInfo dir = new DirectoryInfo(strInputPath);
-                FileInfo[] finfo = dir.GetFiles();
                 string fnames = string.Empty;
                 int i = 0;
                 bool blOk = false;
@@ -133,10 +134,10 @@ namespace UNmanagerSoft.DAL
                             while (reader.Peek() > -1)
                             {
                                 string strInputData = reader.ReadLine();
-                                int intTab = strInputData.IndexOf("\t");
+                                int intTab = strInputData.IndexOf("|");
                                 if (intTab >= 0)
                                 {
-                                    string[] strArrays = strInputData.Split('\t');
+                                    string[] strArrays = strInputData.Split('|');
                                     if (strArrays.Length >= 10)
                                     {
                                         string mySqlQuery = "";
@@ -151,8 +152,7 @@ namespace UNmanagerSoft.DAL
                                                          strArrays[1].ToString() + "'";
                                         }
                                         DataTable indt = new DataTable();
-                                        sda.SelectCommand = new OleDbCommand(mySqlQuery, myConn);
-                                        sda.Fill(indt);
+                                        indt = selectDBCommand(mySqlQuery);
                                         if (indt != null)
                                         {
                                             if (indt.Rows.Count >= 1)
@@ -173,16 +173,15 @@ namespace UNmanagerSoft.DAL
                                                     strArrays[8].ToString() + "','" +
                                                     strArrays[9].ToString() + "','" + 
                                                     strArrays[10].ToString() + "')";
+                                                mySqlAddData.Transaction = transaction;
                                                 object myReslut = mySqlAddData.ExecuteNonQuery();
                                                 if (myReslut != System.DBNull.Value)
                                                 {
                                                     //wh 
                                                     DataTable stockDT = new DataTable();
-                                                    string strInOut = "";
                                                     mySqlQuery = "SELECT * FROM 库存表 WHERE 空调型号 = '"
                                                         + strArrays[2] + "' AND 仓库名称 = '" + strArrays[10] + "'";
-                                                    sda.SelectCommand = new OleDbCommand(mySqlQuery, myConn);
-                                                    sda.Fill(stockDT);
+                                                    stockDT = storageWrapper.selectDBCommand(mySqlQuery);
                                                     if (stockDT != null)
                                                     {
                                                         if (stockDT.Rows.Count >= 1) //update
@@ -228,6 +227,7 @@ namespace UNmanagerSoft.DAL
                                                                 strArrays[1] + 
                                                                 "' and 仓库名称 = '" + 
                                                                 strArrays[10] + "'";
+                                                            mySqlAddData.Transaction = transaction;
                                                             myReslut = mySqlAddData.ExecuteNonQuery();
                                                             if (myReslut != System.DBNull.Value)
                                                             {
@@ -261,6 +261,7 @@ namespace UNmanagerSoft.DAL
                                                                 "','" +
                                                                 strArrays[10].ToString() +
                                                                 "')";
+                                                            mySqlAddData.Transaction = transaction;
                                                             myReslut =
                                                                 mySqlAddData.ExecuteNonQuery();
                                                             if (myReslut != System.DBNull.Value)
@@ -305,6 +306,7 @@ namespace UNmanagerSoft.DAL
                         }
                     }
                 }
+                transaction.Commit();
                 myConn.Close();
                 string returnflag = "";
                 if (i >= 1)
@@ -319,6 +321,7 @@ namespace UNmanagerSoft.DAL
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 myConn.Close();
                 return "error," + ex.Message;
             }

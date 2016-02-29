@@ -570,7 +570,8 @@ namespace UNmanagerSoft
                     button_linkPDA.ForeColor = Color.Red;
                 }
             }
-            else if (this.button_linkPDA.Text == "断开连接")
+            else if (this.button_linkPDA.Text == "断开连接" ||
+                this.button_linkPDA.Text == "取消同步手持机")
             {
                 this.button_linkPDA.Enabled = true;
                 this.button_linkPDA.ForeColor = Color.Black;
@@ -581,9 +582,10 @@ namespace UNmanagerSoft
                 blPressLink = true;
                 //button_linkPDA.Enabled = false; 
                 socketWatch.Close();
+                client_comboBox.Text = "";
+                client_comboBox.Items.Clear();
             }
             this.button_linkPDA.Enabled = true;
-
         }
 
         Socket socketWatch = null;
@@ -633,6 +635,8 @@ namespace UNmanagerSoft
         }
 
         private Socket currentSokClient;
+        private int len = 0;
+        private string inputFlag = "";
         private void receMsg(object sokConnectionparn)
         {
             currentSokClient = sokConnectionparn as Socket;
@@ -687,11 +691,12 @@ namespace UNmanagerSoft
                                         StringSplitOptions.RemoveEmptyEntries);
                                     if (flaglist.Length > 2)
                                     {
-                                        int len = Convert.ToInt32(flaglist[0]);
+                                        len = Convert.ToInt32(flaglist[0]);
+                                        inputFlag = flaglist[1];
                                         dataBuilder.Append(flaglist[2]);
                                         if (dataBuilder.Length >= len)
                                         {
-                                            switch (flaglist[1])
+                                            switch (inputFlag)
                                             {
                                                 case "in":
                                                     InChangeText(dataBuilder.ToString(), currentSokClient);
@@ -709,6 +714,22 @@ namespace UNmanagerSoft
                                     else
                                     {
                                         dataBuilder.Append(strTmp);
+                                        if (dataBuilder.Length >= len)
+                                        {
+                                            switch (inputFlag)
+                                            {
+                                                case "in":
+                                                    InChangeText(dataBuilder.ToString(), currentSokClient);
+                                                    break;
+                                                case "out":
+                                                    OutChangeText(dataBuilder.ToString(), currentSokClient);
+                                                    break;
+                                                case "re":
+                                                    ReChangeText(dataBuilder.ToString(), currentSokClient);
+                                                    break;
+                                            }
+                                            dataBuilder = new StringBuilder();
+                                        }
                                     }
                                 }
                             }
@@ -728,9 +749,14 @@ namespace UNmanagerSoft
                 {
                     if (currentSokClient.Poll(1000, SelectMode.SelectWrite))
                     {
-                        currentSokClient.Shutdown(SocketShutdown.Both);
-                        currentSokClient.Close();
-                        //break;
+                        try
+                        {
+                            currentSokClient.Shutdown(SocketShutdown.Both);
+                            currentSokClient.Close();
+                            //break;
+                        }
+                        catch
+                        { }
                     }
                 }
             }
@@ -1261,7 +1287,7 @@ namespace UNmanagerSoft
             {
                 if (dataGridView_pairTable.CurrentRow != null)
                 {
-                    if (this.dataGridView_pairTable.SelectedRows.Count >= 0)
+                    if (this.dataGridView_pairTable.SelectedRows.Count > 0)
                     {
                         this.textBox_inPairCode.Text = this.dataGridView_pairTable
                             .Rows[this.dataGridView_pairTable.CurrentRow.Index]

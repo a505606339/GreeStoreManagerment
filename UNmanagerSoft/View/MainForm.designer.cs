@@ -226,10 +226,10 @@
             this.tabcontrol_main.Controls.Add(this.tabPage4);
             this.tabcontrol_main.Controls.Add(this.tabPage5);
             this.tabcontrol_main.Controls.Add(this.tabPage6);
-            this.tabcontrol_main.Location = new System.Drawing.Point(-3, 24);
+            this.tabcontrol_main.Location = new System.Drawing.Point(-3, 3);
             this.tabcontrol_main.Name = "tabcontrol_main";
             this.tabcontrol_main.SelectedIndex = 0;
-            this.tabcontrol_main.Size = new System.Drawing.Size(763, 491);
+            this.tabcontrol_main.Size = new System.Drawing.Size(763, 512);
             this.tabcontrol_main.TabIndex = 1;
             // 
             // tabPage2
@@ -239,7 +239,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(755, 465);
+            this.tabPage2.Size = new System.Drawing.Size(755, 486);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "入库管理";
             // 
@@ -252,7 +252,7 @@
             this.inContorlPannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inContorlPannel.Location = new System.Drawing.Point(3, 3);
             this.inContorlPannel.Name = "inContorlPannel";
-            this.inContorlPannel.Size = new System.Drawing.Size(749, 459);
+            this.inContorlPannel.Size = new System.Drawing.Size(749, 480);
             this.inContorlPannel.TabIndex = 14;
             // 
             // picbox_inSelect
@@ -520,7 +520,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(755, 465);
+            this.tabPage6.Size = new System.Drawing.Size(755, 486);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "配置表管理";
             // 
@@ -530,7 +530,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 70);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(749, 308);
+            this.panel8.Size = new System.Drawing.Size(749, 329);
             this.panel8.TabIndex = 39;
             // 
             // groupBox_client
@@ -541,7 +541,7 @@
             this.groupBox_client.Font = new System.Drawing.Font("宋体", 9F);
             this.groupBox_client.Location = new System.Drawing.Point(0, 0);
             this.groupBox_client.Name = "groupBox_client";
-            this.groupBox_client.Size = new System.Drawing.Size(749, 308);
+            this.groupBox_client.Size = new System.Drawing.Size(749, 329);
             this.groupBox_client.TabIndex = 0;
             this.groupBox_client.TabStop = false;
             this.groupBox_client.Text = "配置表管理";
@@ -552,7 +552,7 @@
             this.panelPairTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPairTable.Location = new System.Drawing.Point(3, 17);
             this.panelPairTable.Name = "panelPairTable";
-            this.panelPairTable.Size = new System.Drawing.Size(497, 288);
+            this.panelPairTable.Size = new System.Drawing.Size(497, 309);
             this.panelPairTable.TabIndex = 2;
             // 
             // dataGridView_pairTable
@@ -568,7 +568,7 @@
             this.dataGridView_pairTable.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_pairTable.Name = "dataGridView_pairTable";
             this.dataGridView_pairTable.RowTemplate.Height = 23;
-            this.dataGridView_pairTable.Size = new System.Drawing.Size(497, 288);
+            this.dataGridView_pairTable.Size = new System.Drawing.Size(497, 309);
             this.dataGridView_pairTable.TabIndex = 0;
             this.dataGridView_pairTable.SelectionChanged += new System.EventHandler(this.dataGridView_pairTable_SelectionChanged);
             // 
@@ -614,7 +614,7 @@
             this.panelPairTableButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelPairTableButton.Location = new System.Drawing.Point(500, 17);
             this.panelPairTableButton.Name = "panelPairTableButton";
-            this.panelPairTableButton.Size = new System.Drawing.Size(246, 288);
+            this.panelPairTableButton.Size = new System.Drawing.Size(246, 309);
             this.panelPairTableButton.TabIndex = 1;
             // 
             // button_paircodeDownload
@@ -866,7 +866,7 @@
             this.panel7.Controls.Add(this.btnClientManage);
             this.panel7.Controls.Add(this.toolstrippeizhi);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 378);
+            this.panel7.Location = new System.Drawing.Point(3, 399);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(749, 84);
             this.panel7.TabIndex = 31;
